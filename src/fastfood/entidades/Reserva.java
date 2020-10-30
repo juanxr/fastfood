@@ -3,7 +3,7 @@ package fastfood.entidades;
 
 import java.time.LocalDate;
 
-public class Reserva {
+public class Reserva{
     private int idReserva;
     private int mesa;
     private int dni;
