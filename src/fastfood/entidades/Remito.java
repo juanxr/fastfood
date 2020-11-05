@@ -2,44 +2,45 @@
 package fastfood.entidades;
 
 
-public class Comanda {
-    private int idComanda ;
-    private Pedido pedido;
-    private Producto producto;
-    private int cantidad;
-    private double importe;
+public class Remito {
+        private int idRemito;
+        private Pedido pedido;
+        private Producto producto;
+        private int cantidad;
+        private double importe;
 
-    public Comanda() {
-    }
-   
-    public Comanda(int idComanda) {
-        this.idComanda = idComanda;
+    public Remito() {
     }
 
-    public Comanda(int idComanda, Pedido pedido, Producto producto, int cantidad, double importe) {
-        this.idComanda = idComanda;
+    public Remito(int idRemito) {
+        this.idRemito = idRemito;
+    }
+
+    public Remito(int idRemito, Pedido pedido, Producto producto, int cantidad, double importe) {
+        this.idRemito = idRemito;
         this.pedido = pedido;
         this.producto = producto;
         this.cantidad = cantidad;
         this.importe = importe;
     }
 
-    
-
-    public Comanda(Pedido pedido, Producto producto, int cantidad, double importe) {
+    public Remito(Pedido pedido, Producto producto, int cantidad, double importe) {
         this.pedido = pedido;
         this.producto = producto;
         this.cantidad = cantidad;
         this.importe = importe;
     }
+        
+        
+    
     
 
-    public int getIdComanda() {
-        return idComanda;
+    public int getIdRemito() {
+        return idRemito;
     }
 
-    public void setIdComanda(int idComanda) {
-        this.idComanda = idComanda;
+    public void setIdRemito(int idRemito) {
+        this.idRemito = idRemito;
     }
 
     public Pedido getPedido() {
@@ -73,5 +74,11 @@ public class Comanda {
     public void setImporte(double importe) {
         this.importe = importe;
     }
+        
+        
+                
+        
+  
+    
     
 }

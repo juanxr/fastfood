@@ -2,6 +2,7 @@
 package fastfood.entidades;
 
 import java.time.LocalDate;
+import java.time.LocalTime;
 
 public class Reserva{
     private int idReserva;
@@ -10,6 +11,7 @@ public class Reserva{
     private String nombre;
     private String apellido;
     private LocalDate fecha;
+    private LocalTime hora;
     private Boolean estadoReserva;
 
     public Reserva() {
@@ -26,6 +28,7 @@ public class Reserva{
         this.nombre = nombre;
         this.apellido = apellido;
         this.fecha = fecha;
+        this.hora = hora;
         this.estadoReserva = estadoReserva;
     }
 
@@ -35,6 +38,7 @@ public class Reserva{
         this.nombre = nombre;
         this.apellido = apellido;
         this.fecha = fecha;
+        this.hora = hora;
         this.estadoReserva = estadoReserva;
     }
     
@@ -87,6 +91,15 @@ public class Reserva{
     public void setFecha(LocalDate fecha) {
         this.fecha = fecha;
     }
+
+    public LocalTime getHora() {
+        return hora;
+    }
+
+    public void setHora(LocalTime hora) {
+        this.hora = hora;
+    }
+    
 
     public Boolean getEstadoReserva() {
         return estadoReserva;
