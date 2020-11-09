@@ -2,13 +2,13 @@
 package fastfood.entidades;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 public class Pedido {
     private int idPedido;
-    private int mesa;
-    private int mesero;
-    private Boolean estadoPedido;
-     private LocalDate fecha;
-    
+    private Mesa  mesa;
+    private Mesero mesero;
+    private boolean estadoPedido;
+     private LocalDateTime fechaPedido;
 
     public Pedido() {
     }
@@ -17,25 +17,28 @@ public class Pedido {
         this.idPedido = idPedido;
     }
 
-    public Pedido(int idPedido, int mesa, int mesero, Boolean estadoPedido, LocalDate fecha) {
+    public Pedido(int idPedido, Mesa mesa, Mesero mesero, boolean estadoPedido, LocalDate fecha) {
         this.idPedido = idPedido;
         this.mesa = mesa;
         this.mesero = mesero;
         this.estadoPedido = estadoPedido;
-        this.fecha = fecha;
+        this.fechaPedido = fechaPedido;
     }
 
-    public Pedido(int mesa, int mesero, Boolean estadoPedido, LocalDate fecha) {
+    public Pedido(Mesa mesa, Mesero mesero, boolean estadoPedido, LocalDate fecha) {
         this.mesa = mesa;
         this.mesero = mesero;
         this.estadoPedido = estadoPedido;
-        this.fecha = fecha;
+        this.fechaPedido = fechaPedido;
     }
 
-    
-
-    
-    
+    public Pedido(Mesa mesa, Mesero mesero, boolean estadoPedido) {
+        this.mesa = mesa;
+        this.mesero = mesero;
+        this.estadoPedido = estadoPedido;
+    }
+     
+     
 
     public int getIdPedido() {
         return idPedido;
@@ -45,38 +48,39 @@ public class Pedido {
         this.idPedido = idPedido;
     }
 
-    public int getMesa() {
+    public Mesa getMesa() {
         return mesa;
     }
 
-    public void setMesa(int mesa) {
+    public void setMesa(Mesa mesa) {
         this.mesa = mesa;
     }
 
-    public int getMesero() {
+    public Mesero getMesero() {
         return mesero;
     }
 
-    public void setMesero(int mesero) {
+    public void setMesero(Mesero mesero) {
         this.mesero = mesero;
     }
 
-    public Boolean getEstadoPedido() {
+    public boolean isEstadoPedido() {
         return estadoPedido;
     }
 
-    public void setEstadoPedido(Boolean estadoPedido) {
+    public void setEstadoPedido(boolean estadoPedido) {
         this.estadoPedido = estadoPedido;
     }
 
-    public LocalDate getFecha() {
-        return fecha;
+    public LocalDateTime getFechaPedido() {
+        return fechaPedido;
     }
 
-    public void setFecha(LocalDate fecha) {
-        this.fecha = fecha;
+    public void setFechaPedido(LocalDateTime fecha) {
+        this.fechaPedido = fecha;
     }
+    
 
-   
+    
     
 }
