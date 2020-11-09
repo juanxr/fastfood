@@ -1,13 +1,14 @@
 
 package fastfood.entidades;
 
-
+import java.time.LocalDate;
 public class Pedido {
     private int idPedido;
     private int mesa;
     private int mesero;
     private Boolean estadoPedido;
-    private double importePedido;
+     private LocalDate fecha;
+    
 
     public Pedido() {
     }
@@ -16,20 +17,24 @@ public class Pedido {
         this.idPedido = idPedido;
     }
 
-    public Pedido(int idPedido, int mesa, int mesero, Boolean estadoPedido, double importePedido) {
+    public Pedido(int idPedido, int mesa, int mesero, Boolean estadoPedido, LocalDate fecha) {
         this.idPedido = idPedido;
         this.mesa = mesa;
         this.mesero = mesero;
         this.estadoPedido = estadoPedido;
-        this.importePedido = importePedido;
+        this.fecha = fecha;
     }
 
-    public Pedido(int mesa, int mesero, Boolean estadoPedido, double importePedido) {
+    public Pedido(int mesa, int mesero, Boolean estadoPedido, LocalDate fecha) {
         this.mesa = mesa;
         this.mesero = mesero;
         this.estadoPedido = estadoPedido;
-        this.importePedido = importePedido;
+        this.fecha = fecha;
     }
+
+    
+
+    
     
 
     public int getIdPedido() {
@@ -64,13 +69,14 @@ public class Pedido {
         this.estadoPedido = estadoPedido;
     }
 
-    public double getImportePedido() {
-        return importePedido;
+    public LocalDate getFecha() {
+        return fecha;
     }
 
-    public void setImportePedido(double importePedido) {
-        this.importePedido = importePedido;
+    public void setFecha(LocalDate fecha) {
+        this.fecha = fecha;
     }
-    
+
+   
     
 }
