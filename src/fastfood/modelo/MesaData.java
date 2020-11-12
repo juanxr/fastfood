@@ -53,9 +53,9 @@ public class MesaData {
             
             if(rs.next()){
                 mesa = new Mesa();
-                mesa.setIdMesa(rs.getInt(1));               //1="id_mesa"
-                mesa.setEstadoMesa(rs.getBoolean(2));       //2="estado_mesa"
-                mesa.setCapacidadMesa(rs.getInt(3));      //3="capacidad_mesa"
+                mesa.setIdMesa(rs.getInt(1));               
+                mesa.setEstadoMesa(rs.getBoolean(2));       
+                mesa.setCapacidadMesa(rs.getInt(3));      
                 
                 JOptionPane.showMessageDialog(null, "Mesa encontrada");
             }

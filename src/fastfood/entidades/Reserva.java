@@ -6,7 +6,7 @@ import java.time.LocalTime;
 
 public class Reserva{
     private int idReserva;
-    private int mesa;
+    private Mesa mesa;
     private int dni;
     private String nombre;
     private String apellido;
@@ -21,7 +21,7 @@ public class Reserva{
         this.idReserva = idReserva;
     }
 
-    public Reserva(int idReserva, int mesa, int dni, String nombre, String apellido, LocalDate fecha, Boolean estadoReserva) {
+    public Reserva(int idReserva, Mesa mesa, int dni, String nombre, String apellido, LocalDate fecha, Boolean estadoReserva) {
         this.idReserva = idReserva;
         this.mesa = mesa;
         this.dni = dni;
@@ -32,7 +32,7 @@ public class Reserva{
         this.estadoReserva = estadoReserva;
     }
 
-    public Reserva(int mesa, int dni, String nombre, String apellido, LocalDate fecha, Boolean estadoReserva) {
+    public Reserva(Mesa mesa, int dni, String nombre, String apellido, LocalDate fecha, Boolean estadoReserva) {
         this.mesa = mesa;
         this.dni = dni;
         this.nombre = nombre;
@@ -52,11 +52,11 @@ public class Reserva{
         this.idReserva = idReserva;
     }
 
-    public int getMesa() {
+    public Mesa getMesa() {
         return mesa;
     }
 
-    public void setMesa(int mesa) {
+    public void setMesa(Mesa mesa) {
         this.mesa = mesa;
     }
 

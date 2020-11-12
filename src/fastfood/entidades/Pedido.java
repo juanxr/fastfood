@@ -1,14 +1,16 @@
-
 package fastfood.entidades;
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
+
 public class Pedido {
+
     private int idPedido;
-    private Mesa  mesa;
+    private Mesa mesa;
     private Mesero mesero;
-    private boolean estadoPedido;
-     private LocalDateTime fechaPedido;
+    private Boolean estadoPedido;
+    private List<Producto> productos = new ArrayList<>();
+    private double importePedido;
 
     public Pedido() {
     }
@@ -17,28 +19,25 @@ public class Pedido {
         this.idPedido = idPedido;
     }
 
-    public Pedido(int idPedido, Mesa mesa, Mesero mesero, boolean estadoPedido, LocalDate fecha) {
+    public Pedido(int idPedido, Mesa mesa, Mesero mesero, Boolean estadoPedido, List<Producto> productos) {
         this.idPedido = idPedido;
         this.mesa = mesa;
         this.mesero = mesero;
         this.estadoPedido = estadoPedido;
-        this.fechaPedido = fechaPedido;
+        this.productos = productos;
+        this.calcularImporte();
     }
 
-    public Pedido(Mesa mesa, Mesero mesero, boolean estadoPedido, LocalDate fecha) {
+    public void setProductos(List<Producto> productos) {
+        this.productos = productos;
+    }
+
+    public Pedido(Mesa mesa, Mesero mesero, Boolean estadoPedido, double importePedido) {
         this.mesa = mesa;
         this.mesero = mesero;
         this.estadoPedido = estadoPedido;
-        this.fechaPedido = fechaPedido;
+        this.importePedido = importePedido;
     }
-
-    public Pedido(Mesa mesa, Mesero mesero, boolean estadoPedido) {
-        this.mesa = mesa;
-        this.mesero = mesero;
-        this.estadoPedido = estadoPedido;
-    }
-     
-     
 
     public int getIdPedido() {
         return idPedido;
@@ -48,39 +47,45 @@ public class Pedido {
         this.idPedido = idPedido;
     }
 
-    public Mesa getMesa() {
-        return mesa;
+    public int getMesa() {
+        return this.mesa.getIdMesa();
     }
 
-    public void setMesa(Mesa mesa) {
-        this.mesa = mesa;
+    public void setMesa(int mesa) {
+        this.mesa.setIdMesa(mesa);
     }
 
-    public Mesero getMesero() {
-        return mesero;
+    public int getMesero() {
+        return this.mesero.getIdMesero();
     }
 
-    public void setMesero(Mesero mesero) {
-        this.mesero = mesero;
+    public void setMesero(int mesero) {
+        this.mesero.setIdMesero(mesero);
     }
 
-    public boolean isEstadoPedido() {
+    public Boolean getEstadoPedido() {
         return estadoPedido;
     }
 
-    public void setEstadoPedido(boolean estadoPedido) {
+    public void setEstadoPedido(Boolean estadoPedido) {
         this.estadoPedido = estadoPedido;
     }
 
-    public LocalDateTime getFechaPedido() {
-        return fechaPedido;
+    public double getImportePedido() {
+        return importePedido;
     }
 
-    public void setFechaPedido(LocalDateTime fecha) {
-        this.fechaPedido = fecha;
+    public void setImportePedido(double importePedido) {
+        this.importePedido = importePedido;
     }
-    
 
-    
-    
+    public double calcularImporte() {
+        double total = 0;
+        for (int x = 0; x < productos.size(); x++) {
+            total += productos.get(x).getPrecio();
+
+        }
+        this.importePedido = total;
+        return this.importePedido;
+    }
 }

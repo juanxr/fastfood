@@ -5,7 +5,7 @@ package fastfood.entidades;
 public class Mesero {
     private int idMesero;
     private int dniMesero;
-    private int cuitMesero;
+    private String cuitMesero;
     private String nombreMesero;
     private String apellidoMesero;
     private Boolean estadoMesero;
@@ -17,7 +17,7 @@ public class Mesero {
         this.idMesero = idMesero;
     }
 
-    public Mesero(int idMesero, int dniMesero, int cuitMesero, String nombreMesero, String apellidoMesero, Boolean estadoMesero) {
+    public Mesero(int idMesero, int dniMesero, String cuitMesero, String nombreMesero, String apellidoMesero, Boolean estadoMesero) {
         this.idMesero = idMesero;
         this.dniMesero = dniMesero;
         this.cuitMesero = cuitMesero;
@@ -26,7 +26,7 @@ public class Mesero {
         this.estadoMesero = estadoMesero;
     }
 
-    public Mesero(int dniMesero, int cuitMesero, String nombreMesero, String apellidoMesero, Boolean estadoMesero) {
+    public Mesero(int dniMesero, String cuitMesero, String nombreMesero, String apellidoMesero, Boolean estadoMesero) {
         this.dniMesero = dniMesero;
         this.cuitMesero = cuitMesero;
         this.nombreMesero = nombreMesero;
@@ -51,11 +51,11 @@ public class Mesero {
         this.dniMesero = dniMesero;
     }
 
-    public int getCuitMesero() {
+    public String getCuitMesero() {
         return cuitMesero;
     }
 
-    public void setCuitMesero(int cuitMesero) {
+    public void setCuitMesero(String cuitMesero) {
         this.cuitMesero = cuitMesero;
     }
 

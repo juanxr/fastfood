@@ -9,7 +9,7 @@ import javax.swing.JOptionPane;
 
 public class Conexion {
    
-    private final String base= "fastfood";
+    private final String base= "rapifood";
     private final String url="jdbc:mysql://localhost:3306/"+base;
     private final String user="root";
     private final String pass="";
@@ -24,10 +24,10 @@ public class Conexion {
                 Class.forName("org.mariadb.jdbc.Driver");
                 con = (Connection)DriverManager.getConnection(url, user, pass);
             }
-            catch (SQLException |ClassNotFoundException e)
+            catch (Exception e)
             {   
-                JOptionPane.showInternalMessageDialog(null, "Error al conectarse");
-                System.err.print(e);
+                JOptionPane.showMessageDialog(null, e.getMessage());
+               
             }
         }
                 return con;
