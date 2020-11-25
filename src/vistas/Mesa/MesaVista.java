@@ -5,17 +5,25 @@
  */
 package vistas.Mesa;
 
+import fastfood.entidades.Mesa;
+import fastfood.entidades.Mesero;
+import fastfood.modelo.Conexion;
+import fastfood.modelo.*;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author USUARIO
  */
 public class MesaVista extends javax.swing.JInternalFrame {
 
-    /**
-     * Creates new form MesaVista
-     */
+    private MesaData md;
+    private Conexion c;
     public MesaVista() {
         initComponents();
+        this.setLocation(310, 50);
+        c = new Conexion();
+        md = new MesaData(c);
     }
 
     /**
@@ -31,35 +39,52 @@ public class MesaVista extends javax.swing.JInternalFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        jbBuscar = new javax.swing.JButton();
+        jtfId = new javax.swing.JTextField();
+        jtfCapacidad = new javax.swing.JTextField();
+        jbGuardar = new javax.swing.JButton();
+        jbBorrar = new javax.swing.JButton();
+        jbActualizar = new javax.swing.JButton();
+        jcbEstado = new javax.swing.JCheckBox();
 
-        jLabel1.setText("jLabel1");
+        jLabel1.setFont(new java.awt.Font("Swis721 Lt BT", 0, 48)); // NOI18N
+        jLabel1.setText("~Mesa~");
 
-        jLabel2.setText("jLabel2");
+        jLabel2.setText("Id:");
 
-        jLabel3.setText("jLabel3");
+        jLabel3.setText("Estado:");
 
-        jLabel4.setText("jLabel4");
+        jLabel4.setText("Capacidad:");
 
-        jButton1.setText("jButton1");
+        jbBuscar.setText("Buscar x Mesa de a 1");
+        jbBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbBuscarActionPerformed(evt);
+            }
+        });
 
-        jTextField1.setText("jTextField1");
+        jbGuardar.setText("Guardar");
+        jbGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbGuardarActionPerformed(evt);
+            }
+        });
 
-        jTextField2.setText("jTextField2");
+        jbBorrar.setText("Borrar");
+        jbBorrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbBorrarActionPerformed(evt);
+            }
+        });
 
-        jTextField3.setText("jTextField3");
+        jbActualizar.setText("Actualizar");
+        jbActualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbActualizarActionPerformed(evt);
+            }
+        });
 
-        jButton2.setText("jButton2");
-
-        jButton3.setText("jButton3");
-
-        jButton4.setText("jButton4");
+        jcbEstado.setText("Activo");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -68,78 +93,134 @@ public class MesaVista extends javax.swing.JInternalFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(73, 73, 73)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(61, 61, 61)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel4)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addComponent(jLabel3)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                         .addComponent(jLabel2)
-                                        .addGap(35, 35, 35)
-                                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(18, 18, 18)
-                                .addComponent(jButton1))
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jtfId))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                        .addComponent(jLabel4)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jtfCapacidad, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(29, 29, 29)
+                                .addComponent(jbBuscar))
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(69, 69, 69)
-                                .addComponent(jButton3)
-                                .addGap(50, 50, 50)
-                                .addComponent(jButton4))))
+                                .addComponent(jLabel3)
+                                .addGap(35, 35, 35)
+                                .addComponent(jcbEstado))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jbGuardar)
+                                .addGap(34, 34, 34)
+                                .addComponent(jbBorrar)
+                                .addGap(32, 32, 32)
+                                .addComponent(jbActualizar))))
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jButton2)))
-                .addContainerGap(68, Short.MAX_VALUE))
+                        .addGap(117, 117, 117)
+                        .addComponent(jLabel1)))
+                .addContainerGap(128, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(22, 22, 22)
+                .addGap(21, 21, 21)
                 .addComponent(jLabel1)
-                .addGap(49, 49, 49)
+                .addGap(50, 50, 50)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jButton1)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(24, 24, 24)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jbBuscar)
+                    .addComponent(jtfId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(20, 20, 20)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(21, 21, 21)
+                    .addComponent(jcbEstado))
+                .addGap(22, 22, 22)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
+                    .addComponent(jtfCapacidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2)
-                    .addComponent(jButton3)
-                    .addComponent(jButton4))
-                .addGap(29, 29, 29))
+                    .addComponent(jbGuardar)
+                    .addComponent(jbBorrar)
+                    .addComponent(jbActualizar))
+                .addGap(79, 79, 79))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jbBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbBuscarActionPerformed
+       boolean cargado = true;
+        if (jtfId.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "El campo id esta vacio: " + jtfId.getText(), "ERROR!", JOptionPane.WARNING_MESSAGE);
+        }
+        if (cargado) {
+            int id = Integer.parseInt(jtfId.getText());
+            Mesa mesa = md.buscarMesa(id);
+            if (mesa != null) {
+                jtfId.setText(mesa.getIdMesa()+"");
+                jcbEstado.setSelected(mesa.isEstadoMesa());
+                jtfCapacidad.setText(mesa.getCapacidadMesa()+"");
+            }
+        }
+    }//GEN-LAST:event_jbBuscarActionPerformed
+
+    private void jbGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbGuardarActionPerformed
+        int x = JOptionPane.showConfirmDialog(this, "Esta por guardar una mesa esta seguro?", "ATENCION!!", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
+        if (x == JOptionPane.YES_OPTION) {
+            int capacidad = Integer.parseInt(jtfCapacidad.getText());
+            boolean estado = jcbEstado.isSelected();
+            Mesa mesa = new Mesa(estado,capacidad);
+            md.guardarMesa(mesa);
+            jtfId.setText(mesa.getIdMesa()+"");
+            if (jtfCapacidad.getText().isEmpty()) {
+                JOptionPane.showMessageDialog(this, "No puede dejar el campo capacidad vacio");
+            }
+            limpiar();
+        }        
+    }//GEN-LAST:event_jbGuardarActionPerformed
+
+    private void jbBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbBorrarActionPerformed
+        int x = JOptionPane.showConfirmDialog(this, "Seguro que desea eliminar la mesa?", "ATENCION!!", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
+        if (x == JOptionPane.YES_OPTION) {
+            int id = Integer.parseInt(jtfId.getText());
+            md.borrarMesa(id);
+            limpiar();
+        }
+    }//GEN-LAST:event_jbBorrarActionPerformed
+
+    private void jbActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbActualizarActionPerformed
+        int x = JOptionPane.showConfirmDialog(this, "Esta seguro que desea actualizar la mesa?", "ATENCION!!", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
+        if (x == JOptionPane.YES_OPTION) {
+            if (jtfId.getText()!= null) {
+                boolean estado = jcbEstado.isSelected();
+                int capacidad = Integer.parseInt(jtfCapacidad.getText());
+                Mesa mesa = new Mesa(Integer.parseInt(jtfId.getText()),estado,capacidad);
+                md.actualizarMesa(mesa);
+                jtfId.setText(mesa.getIdMesa()+"");
+                limpiar();
+            }
+        }
+    }//GEN-LAST:event_jbActualizarActionPerformed
+    void limpiar(){
+    jtfId.setText("");
+    jcbEstado.setSelected(false);
+    jtfCapacidad.setText("");
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
+    private javax.swing.JButton jbActualizar;
+    private javax.swing.JButton jbBorrar;
+    private javax.swing.JButton jbBuscar;
+    private javax.swing.JButton jbGuardar;
+    private javax.swing.JCheckBox jcbEstado;
+    private javax.swing.JTextField jtfCapacidad;
+    private javax.swing.JTextField jtfId;
     // End of variables declaration//GEN-END:variables
 }

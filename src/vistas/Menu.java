@@ -6,6 +6,7 @@
 package vistas;
 
 import javax.swing.JFrame;
+import vistas.Mesa.MesaVista;
 
 /**
  *
@@ -35,6 +36,7 @@ public class Menu extends javax.swing.JFrame {
         submenu = new javax.swing.JDesktopPane();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
+        jMenuItem10 = new javax.swing.JMenuItem();
         item = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
@@ -65,6 +67,15 @@ public class Menu extends javax.swing.JFrame {
 
         jMenu1.setText("Mesa");
         jMenu1.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
+
+        jMenuItem10.setText("Mesa Menu");
+        jMenuItem10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem10ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem10);
+
         jMenuBar1.add(jMenu1);
 
         item.setText("Mesero");
@@ -159,6 +170,15 @@ public class Menu extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
+    private void jMenuItem10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem10ActionPerformed
+        MesaVista mesa =new MesaVista();
+        submenu.removeAll();
+       submenu.repaint();
+        mesa.setVisible(true);
+        submenu.add(mesa);
+        submenu.moveToFront(mesa);
+    }//GEN-LAST:event_jMenuItem10ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -203,6 +223,7 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem10;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
