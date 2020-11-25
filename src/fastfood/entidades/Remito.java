@@ -74,6 +74,10 @@ public class Remito {
     public void setImporte(double importe) {
         this.importe = importe;
     }
+
+    public int getInt(int i) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
         
         
                 

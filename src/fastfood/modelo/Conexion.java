@@ -9,7 +9,7 @@ import javax.swing.JOptionPane;
 
 public class Conexion {
    
-    private final String base= "rapifood";
+    private final String base= "fastfood";
     private final String url="jdbc:mysql://localhost:3306/"+base;
     private final String user="root";
     private final String pass="";
