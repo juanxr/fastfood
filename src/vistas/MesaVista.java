@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package vistas.Mesa;
+package vistas;
 
 import fastfood.entidades.Mesa;
 import fastfood.entidades.Mesero;
@@ -46,6 +46,11 @@ public class MesaVista extends javax.swing.JInternalFrame {
         jbBorrar = new javax.swing.JButton();
         jbActualizar = new javax.swing.JButton();
         jcbEstado = new javax.swing.JCheckBox();
+        jbLimpiar = new javax.swing.JButton();
+
+        setClosable(true);
+        setIconifiable(true);
+        setMaximizable(true);
 
         jLabel1.setFont(new java.awt.Font("Swis721 Lt BT", 0, 48)); // NOI18N
         jLabel1.setText("~Mesa~");
@@ -86,6 +91,13 @@ public class MesaVista extends javax.swing.JInternalFrame {
 
         jcbEstado.setText("Activo");
 
+        jbLimpiar.setText("Limpiar");
+        jbLimpiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbLimpiarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -116,11 +128,13 @@ public class MesaVista extends javax.swing.JInternalFrame {
                                 .addGap(34, 34, 34)
                                 .addComponent(jbBorrar)
                                 .addGap(32, 32, 32)
-                                .addComponent(jbActualizar))))
+                                .addComponent(jbActualizar)
+                                .addGap(34, 34, 34)
+                                .addComponent(jbLimpiar))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(117, 117, 117)
                         .addComponent(jLabel1)))
-                .addContainerGap(128, Short.MAX_VALUE))
+                .addContainerGap(53, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -144,7 +158,8 @@ public class MesaVista extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jbGuardar)
                     .addComponent(jbBorrar)
-                    .addComponent(jbActualizar))
+                    .addComponent(jbActualizar)
+                    .addComponent(jbLimpiar))
                 .addGap(79, 79, 79))
         );
 
@@ -204,6 +219,10 @@ public class MesaVista extends javax.swing.JInternalFrame {
             }
         }
     }//GEN-LAST:event_jbActualizarActionPerformed
+
+    private void jbLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbLimpiarActionPerformed
+        limpiar();
+    }//GEN-LAST:event_jbLimpiarActionPerformed
     void limpiar(){
     jtfId.setText("");
     jcbEstado.setSelected(false);
@@ -219,6 +238,7 @@ public class MesaVista extends javax.swing.JInternalFrame {
     private javax.swing.JButton jbBorrar;
     private javax.swing.JButton jbBuscar;
     private javax.swing.JButton jbGuardar;
+    private javax.swing.JButton jbLimpiar;
     private javax.swing.JCheckBox jcbEstado;
     private javax.swing.JTextField jtfCapacidad;
     private javax.swing.JTextField jtfId;

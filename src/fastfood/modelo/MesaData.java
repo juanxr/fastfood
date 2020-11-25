@@ -127,7 +127,7 @@ public List<Mesa> obtenerMesas(){
     }
     
     public void actualizarMesa(Mesa mesa){
-        String sql="UPDATE mesa SET estado_mesa= ?, capacidad_maxima= ? WHERE id_mesa";
+        String sql="UPDATE mesa SET estado_mesa= ?, capacidad_maxima= ? WHERE id_mesa=?";
         
         try{
             PreparedStatement ps = con.prepareStatement(sql);
