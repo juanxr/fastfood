@@ -82,6 +82,11 @@ public class Mesero {
     public void setEstadoMesero(Boolean estadoMesero) {
         this.estadoMesero = estadoMesero;
     }
+
+    @Override
+    public String toString() {
+        return nombreMesero + " "+ apellidoMesero; //To change body of generated methods, choose Tools | Templates.
+    }
     
     
 }

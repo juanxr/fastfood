@@ -61,6 +61,11 @@ public class Producto {
     public void setEstadoProducto(Boolean estadoProducto) {
         this.estadoProducto = estadoProducto;
     }
+
+    @Override
+    public String toString() {
+        return nombreProducto; //To change body of generated methods, choose Tools | Templates.
+    }
     
     
 }

@@ -49,5 +49,10 @@ public class Mesa {
     public void setCapacidadMesa(int capacidadMesa) {
         this.capacidadMesa = capacidadMesa;
     }
+
+    @Override
+    public String toString() {
+        return "Mesa N: "+idMesa; //To change body of generated methods, choose Tools | Templates.
+    }
     
 }

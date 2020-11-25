@@ -63,9 +63,9 @@ public class MeseroData {
         return m;
     }
 
-    public List<Mesero> obtenerMeseros() {
+    public ArrayList<Mesero> obtenerMeseros() {
         Mesero m;
-        List<Mesero> meseros = new ArrayList<>();
+        ArrayList<Mesero> meseros = new ArrayList<>();
         String sql = "SELECT * FROM mesero";
         try {
             PreparedStatement ps = con.prepareStatement(sql);

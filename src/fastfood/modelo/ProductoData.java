@@ -53,9 +53,9 @@ public class ProductoData {
         return p;
     }
 
-    public List<Producto> obtenerProductos() {
+    public ArrayList<Producto> obtenerProductos() {
         Producto p;
-        List<Producto> productos = new ArrayList<>();
+        ArrayList<Producto> productos = new ArrayList<>();
         String sql = "SELECT * FROM producto ";
         try {
             PreparedStatement ps = con.prepareStatement(sql);

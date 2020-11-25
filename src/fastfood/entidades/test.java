@@ -21,38 +21,41 @@ public class test {
 
    
     public static void main(String[] args) {
-        Mesa mesa1 = new Mesa(1,true,6);
-        Mesa mesa2 = new Mesa(2,true,2);
-        Mesa mesa3 = new Mesa(3,true,4);
-        Mesa mesa4 = new Mesa(4,false,10);
+      //  Mesa mesa1 = new Mesa(1,true,6);
+     //   Mesa mesa2 = new Mesa(2,true,2);
+     //   Mesa mesa3 = new Mesa(3,true,4);
+     //   Mesa mesa4 = new Mesa(4,false,10);
         
-        Mesero juan = new Mesero(1,14669771,"27-14669771-2","Juan","Funes",true);
-        Mesero fabio = new Mesero(4,15669772,"27-15669772-2","Fabio","Perez",true);
-        Mesero claudio = new Mesero(5,27849637,"20-27849637-5","Claudio","Garcia",false);
+      //  Mesero juan = new Mesero(1,14669771,"27-14669771-2","Juan","Funes",true);
+      //  Mesero fabio = new Mesero(4,15669772,"27-15669772-2","Fabio","Perez",true);
+     // Mesero claudio = new Mesero(5,27849637,"20-27849637-5","Claudio","Garcia",false);
         
-        Producto cafe = new Producto(41,"Cafe",170.45,true);
-        Producto tostado = new Producto(22,"Tostado",190.99,true);
-        Producto submarino = new Producto(11,"Submarino",220,true);
+    //    Producto cafe = new Producto(41,"Cafe",170.45,true);
+    //    Producto tostado = new Producto(22,"Tostado",190.99,true);
+     //   Producto submarino = new Producto(11,"Submarino",220,true);
         
-        List<Producto> menu1 = new ArrayList<>();
-        menu1.add(cafe);
-        menu1.add(tostado);
-        menu1.add(submarino);
+     //   List<Producto> menu1 = new ArrayList<>();
+     //   menu1.add(cafe);
+     //   menu1.add(tostado);
+     //   menu1.add(submarino);
         
         
-        Pedido pedido = new Pedido(1,mesa1,juan,true,menu1);
+     //   Pedido pedido = new Pedido(1,mesa1,juan,true,menu1);
         //System.out.println(pedido.calcularImporte());
        
         Conexion c=new Conexion();
-        //MesaData mesaData1 = new MesaData(c);
-       // mesaData1.guardarMesa(mesa1);
+        MesaData mesaData1 = new MesaData(c);
+      //  mesaData1.guardarMesa(mesa2);
+      //  mesaData1.guardarMesa(mesa3);
+      //  mesaData1.guardarMesa(mesa4);
+        System.out.println(mesaData1.obtenerMesasDisponibles());
         
-      //  MeseroData juanData = new MeseroData(c);
-      //  juanData.guardarMesero(juan);
-        
+       // MeseroData juanData = new MeseroData(c);
+      // juanData.guardarMesero(fabio);
+       // juanData.guardarMesero(claudio);
        // ProductoData menu1Data  = new ProductoData(c);
-       // menu1Data.guardarProducto(tostado);
-        
+       // menu1Data.guardarProducto(cafe);
+      //  menu1Data.guardarProducto(submarino);
          // PedidoData pedidoData1 = new PedidoData(c);
         //  pedidoData1.guardarPedido(pedido);
         //  pedidoData1.borrarPedido(1);

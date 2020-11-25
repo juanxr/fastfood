@@ -70,9 +70,9 @@ public class MesaData {
     return mesa;
     }
 
-public List<Mesa> obtenerMesas(){
+public ArrayList<Mesa> obtenerMesas(){
         Mesa mesa= null;
-        List<Mesa> mesas= new ArrayList<>();
+        ArrayList<Mesa> mesas= new ArrayList<>();
         String sql="SELECT * FROM mesa";
         
         try{
@@ -98,9 +98,9 @@ public List<Mesa> obtenerMesas(){
     return mesas;
     }
     
-    public List<Mesa> obtenerMesasDisponibles(){
+    public ArrayList<Mesa> obtenerMesasDisponibles(){
         Mesa mesa= null;
-        List<Mesa> mesas= new ArrayList<>();
+        ArrayList<Mesa> mesas= new ArrayList<>();
         String sql="SELECT * FROM mesa WHERE estado_mesa = 1";
         
         try{
@@ -114,7 +114,7 @@ public List<Mesa> obtenerMesas(){
                 mesa.setCapacidadMesa(rs.getInt(3));
                 mesas.add(mesa);
             }
-            JOptionPane.showMessageDialog(null, "Mesas encontradas");
+            
          ps.close();
          rs.close();
          //con.close();
@@ -127,7 +127,7 @@ public List<Mesa> obtenerMesas(){
     }
     
     public void actualizarMesa(Mesa mesa){
-        String sql="UPDATE mesa SET estado_mesa= ?, capacidad_maxima= ? WHERE id_mesa=?";
+        String sql="UPDATE mesa SET estado_mesa= ?, capacidad_maxima= ? WHERE id_mesa";
         
         try{
             PreparedStatement ps = con.prepareStatement(sql);

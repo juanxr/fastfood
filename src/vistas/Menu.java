@@ -5,9 +5,6 @@
  */
 package vistas;
 
-import java.awt.Graphics;
-import java.awt.Image;
-import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 
 /**
@@ -23,9 +20,8 @@ public class Menu extends javax.swing.JFrame {
         initComponents();
         this.setExtendedState(JFrame.MAXIMIZED_BOTH); 
         this.setLocationRelativeTo(null);
-        
+
     }
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -39,7 +35,6 @@ public class Menu extends javax.swing.JFrame {
         submenu = new javax.swing.JDesktopPane();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
-        jMenuItem10 = new javax.swing.JMenuItem();
         item = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
@@ -47,6 +42,7 @@ public class Menu extends javax.swing.JFrame {
         jMenuItem3 = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
         jMenuItem4 = new javax.swing.JMenuItem();
+        jMenuItem5 = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
         jMenuItem6 = new javax.swing.JMenuItem();
         jMenuItem7 = new javax.swing.JMenuItem();
@@ -69,15 +65,6 @@ public class Menu extends javax.swing.JFrame {
 
         jMenu1.setText("Mesa");
         jMenu1.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
-
-        jMenuItem10.setText("Mesa Menu");
-        jMenuItem10.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem10ActionPerformed(evt);
-            }
-        });
-        jMenu1.add(jMenuItem10);
-
         jMenuBar1.add(jMenu1);
 
         item.setText("Mesero");
@@ -98,6 +85,11 @@ public class Menu extends javax.swing.JFrame {
 
         jMenuItem2.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jMenuItem2.setText("Agregar");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
         jMenu2.add(jMenuItem2);
 
         jMenuItem3.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
@@ -110,13 +102,12 @@ public class Menu extends javax.swing.JFrame {
         jMenu3.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
 
         jMenuItem4.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jMenuItem4.setText("Producto Menu");
-        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem4ActionPerformed(evt);
-            }
-        });
+        jMenuItem4.setText("Agregar");
         jMenu3.add(jMenuItem4);
+
+        jMenuItem5.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jMenuItem5.setText("Buscar");
+        jMenu3.add(jMenuItem5);
 
         jMenuBar1.add(jMenu3);
 
@@ -163,7 +154,7 @@ public class Menu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-   MeseroVista mesero =new MeseroVista();
+       MeseroVista mesero =new MeseroVista();
         submenu.removeAll();
        submenu.repaint();
         mesero.setVisible(true);
@@ -173,23 +164,15 @@ public class Menu extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
-    private void jMenuItem10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem10ActionPerformed
-        MesaVista mesa =new MesaVista();
-        submenu.removeAll();
-       submenu.repaint();
-        mesa.setVisible(true);
-        submenu.add(mesa);
-        submenu.moveToFront(mesa);
-    }//GEN-LAST:event_jMenuItem10ActionPerformed
-
-    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
-        ProductoVista producto =new ProductoVista();
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        vistaPedidoAgregar ventanaPedidoAgregar = new vistaPedidoAgregar();
         submenu.removeAll();
         submenu.repaint();
-        producto.setVisible(true);
-        submenu.add(producto);
-        submenu.moveToFront(producto);
-    }//GEN-LAST:event_jMenuItem4ActionPerformed
+        ventanaPedidoAgregar.setVisible(true);
+        submenu.add(ventanaPedidoAgregar);
+        submenu.moveToFront(ventanaPedidoAgregar);
+        
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -235,10 +218,10 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem10;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JMenuItem jMenuItem7;
     private javax.swing.JMenuItem jMenuItem8;
