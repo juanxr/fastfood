@@ -37,6 +37,18 @@ public class Menu extends javax.swing.JFrame {
         jMenu1 = new javax.swing.JMenu();
         item = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
+        jMenu2 = new javax.swing.JMenu();
+        jMenuItem2 = new javax.swing.JMenuItem();
+        jMenuItem3 = new javax.swing.JMenuItem();
+        jMenu3 = new javax.swing.JMenu();
+        jMenuItem4 = new javax.swing.JMenuItem();
+        jMenuItem5 = new javax.swing.JMenuItem();
+        jMenu4 = new javax.swing.JMenu();
+        jMenuItem6 = new javax.swing.JMenuItem();
+        jMenuItem7 = new javax.swing.JMenuItem();
+        jMenu5 = new javax.swing.JMenu();
+        jMenuItem8 = new javax.swing.JMenuItem();
+        jMenuItem9 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -51,10 +63,12 @@ public class Menu extends javax.swing.JFrame {
             .addGap(0, 454, Short.MAX_VALUE)
         );
 
-        jMenu1.setText("File");
+        jMenu1.setText("Mesa");
+        jMenu1.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
         jMenuBar1.add(jMenu1);
 
         item.setText("Mesero");
+        item.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
 
         jMenuItem1.setText("Mesero Menu");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
@@ -65,6 +79,58 @@ public class Menu extends javax.swing.JFrame {
         item.add(jMenuItem1);
 
         jMenuBar1.add(item);
+
+        jMenu2.setText("Pedido");
+        jMenu2.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
+
+        jMenuItem2.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jMenuItem2.setText("Agregar");
+        jMenu2.add(jMenuItem2);
+
+        jMenuItem3.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jMenuItem3.setText("Buscar");
+        jMenu2.add(jMenuItem3);
+
+        jMenuBar1.add(jMenu2);
+
+        jMenu3.setText("Producto");
+        jMenu3.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
+
+        jMenuItem4.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jMenuItem4.setText("Agregar");
+        jMenu3.add(jMenuItem4);
+
+        jMenuItem5.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jMenuItem5.setText("Buscar");
+        jMenu3.add(jMenuItem5);
+
+        jMenuBar1.add(jMenu3);
+
+        jMenu4.setText("Remito");
+        jMenu4.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
+
+        jMenuItem6.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jMenuItem6.setText("Agregar");
+        jMenu4.add(jMenuItem6);
+
+        jMenuItem7.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jMenuItem7.setText("Buscar");
+        jMenu4.add(jMenuItem7);
+
+        jMenuBar1.add(jMenu4);
+
+        jMenu5.setText("Reserva");
+        jMenu5.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
+
+        jMenuItem8.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jMenuItem8.setText("Agregar");
+        jMenu5.add(jMenuItem8);
+
+        jMenuItem9.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jMenuItem9.setText("Buscar");
+        jMenu5.add(jMenuItem9);
+
+        jMenuBar1.add(jMenu5);
 
         setJMenuBar(jMenuBar1);
 
@@ -131,8 +197,20 @@ public class Menu extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu item;
     private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenu jMenu3;
+    private javax.swing.JMenu jMenu4;
+    private javax.swing.JMenu jMenu5;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JMenuItem jMenuItem5;
+    private javax.swing.JMenuItem jMenuItem6;
+    private javax.swing.JMenuItem jMenuItem7;
+    private javax.swing.JMenuItem jMenuItem8;
+    private javax.swing.JMenuItem jMenuItem9;
     private javax.swing.JDesktopPane submenu;
     // End of variables declaration//GEN-END:variables
 }
