@@ -5,17 +5,26 @@
  */
 package vistas;
 
+import fastfood.entidades.Producto;
+import fastfood.modelo.Conexion;
+import fastfood.modelo.ProductoData;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author USUARIO
  */
 public class ProductoVista extends javax.swing.JInternalFrame {
 
-    /**
-     * Creates new form ProductoVista
-     */
+    private ProductoData pd;
+    private Conexion conexion;
+
     public ProductoVista() {
         initComponents();
+        this.setLocation(310, 50);
+        conexion = new Conexion();
+        pd = new ProductoData(conexion);
+
     }
 
     /**
@@ -52,6 +61,11 @@ public class ProductoVista extends javax.swing.JInternalFrame {
         jLabel4.setText("Precio:");
 
         jbGuardar.setText("Guardar");
+        jbGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbGuardarActionPerformed(evt);
+            }
+        });
 
         jbBorrar.setText("Borrar");
         jbBorrar.addActionListener(new java.awt.event.ActionListener() {
@@ -61,8 +75,18 @@ public class ProductoVista extends javax.swing.JInternalFrame {
         });
 
         jcbActualizar.setText("Actualizar");
+        jcbActualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jcbActualizarActionPerformed(evt);
+            }
+        });
 
         jbLimpiar.setText("Limpiar");
+        jbLimpiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbLimpiarActionPerformed(evt);
+            }
+        });
 
         jbBuscar.setText("Buscar");
         jbBuscar.addActionListener(new java.awt.event.ActionListener() {
@@ -166,9 +190,57 @@ public class ProductoVista extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jbBuscarActionPerformed
 
     private void jbBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbBorrarActionPerformed
-        // TODO add your handling code here:
+        int x = JOptionPane.showConfirmDialog(this, "Esta seguro que desea BORRAR el mesero?", "ATENCION!!", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
+        if (x == JOptionPane.YES_OPTION) {
+            int id = Integer.parseInt(jtfId.getText());
+            pd.borrarProducto(id);
+            limpiar();}
     }//GEN-LAST:event_jbBorrarActionPerformed
 
+    private void jbGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbGuardarActionPerformed
+        int x = JOptionPane.showConfirmDialog(this, "Esta seguro que desea GUARDAR el mesero?", "ATENCION!!", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
+        if (x == JOptionPane.YES_OPTION) {
+            String nombre = jtfNombre.getText();
+            double precio = Double.parseDouble(jtfPrecio.getText());
+            boolean estado = jcbEstado.isSelected();
+            Producto producto = new Producto(nombre,precio, estado);
+            pd.guardarProducto(producto);
+            jtfId.setText(producto.getIdProducto()+"");
+            if (jtfNombre.getText().isEmpty()) {
+                JOptionPane.showMessageDialog(this, "No puede dejar el campo nombre vacio");
+            }
+            limpiar();
+        }
+    }//GEN-LAST:event_jbGuardarActionPerformed
+
+    private void jbLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbLimpiarActionPerformed
+        limpiar();
+    }//GEN-LAST:event_jbLimpiarActionPerformed
+
+    private void jcbActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbActualizarActionPerformed
+        boolean cargado = true;
+        if (jtfId.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "El campo id esta vacio: " + jtfId.getText(), "ERROR!", JOptionPane.WARNING_MESSAGE);
+        }
+        if (cargado) {
+            int id = Integer.parseInt(jtfId.getText());
+            Producto producto  = pd.buscarProducto(id);
+            if (producto != null) {
+                //jtfId.setText(producto.getIdProducto() + "");
+                jtfNombre.setText(producto.getNombreProducto()+ "");
+                jtfPrecio.setText(producto.getPrecio()+ "");
+                jcbEstado.setSelected(producto.getEstadoProducto());
+                limpiar();
+            }
+        }
+    }//GEN-LAST:event_jcbActualizarActionPerformed
+    void limpiar(){
+    jtfId.setText("");
+    jtfNombre.setText("");
+    jtfPrecio.setText("");
+    jcbEstado.setSelected(false);
+    }
+   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
