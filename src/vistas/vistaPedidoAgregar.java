@@ -24,7 +24,7 @@ public class vistaPedidoAgregar extends javax.swing.JInternalFrame {
     private Conexion c = new Conexion();
     private CustomTableModel tablaProductos;
     private ArrayList<Object> columnas;
-    
+    private double total;
     
     class CustomTableModel extends DefaultTableModel {
 
@@ -81,7 +81,7 @@ public class vistaPedidoAgregar extends javax.swing.JInternalFrame {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
+        jlTotal = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jbtnAgregar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -121,8 +121,8 @@ public class vistaPedidoAgregar extends javax.swing.JInternalFrame {
         jLabel4.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         jLabel4.setText("Total:");
 
-        jLabel5.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
-        jLabel5.setText("0");
+        jlTotal.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
+        jlTotal.setText("0");
 
         jLabel6.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         jLabel6.setText("$");
@@ -170,18 +170,21 @@ public class vistaPedidoAgregar extends javax.swing.JInternalFrame {
                                 .addComponent(jcbProductos, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(29, 29, 29)
                                 .addComponent(jbtnAgregar)))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(0, 162, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jButton1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButton2))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel6)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton2))))
+                        .addComponent(jlTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -201,12 +204,12 @@ public class vistaPedidoAgregar extends javax.swing.JInternalFrame {
                     .addComponent(jbtnAgregar))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 69, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(jLabel5)
+                    .addComponent(jlTotal)
                     .addComponent(jLabel6))
-                .addGap(41, 41, 41)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
                     .addComponent(jButton2))
@@ -222,6 +225,8 @@ public class vistaPedidoAgregar extends javax.swing.JInternalFrame {
 
     private void jbtnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnAgregarActionPerformed
         Producto producto =  (Producto) jcbProductos.getSelectedItem();
+         total += producto.getPrecio();
+        jlTotal.setText(total+"");
         tablaProductos.addRow(new Object[]{producto.getIdProducto(),producto.getNombreProducto(),producto.getPrecio(),producto.getEstadoProducto()});
         
     }//GEN-LAST:event_jbtnAgregarActionPerformed
@@ -265,13 +270,13 @@ public class vistaPedidoAgregar extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton jbtnAgregar;
     private javax.swing.JComboBox<Mesa> jcbMesa;
     private javax.swing.JComboBox<Mesero> jcbMesero;
     private javax.swing.JComboBox<Producto> jcbProductos;
+    private javax.swing.JLabel jlTotal;
     private javax.swing.JTable jtProductos;
     // End of variables declaration//GEN-END:variables
 }
