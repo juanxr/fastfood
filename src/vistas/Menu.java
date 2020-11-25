@@ -102,7 +102,12 @@ public class Menu extends javax.swing.JFrame {
         jMenu3.setFont(new java.awt.Font("Arial", 0, 16)); // NOI18N
 
         jMenuItem4.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jMenuItem4.setText("Agregar");
+        jMenuItem4.setText("Producto Menu");
+        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem4ActionPerformed(evt);
+            }
+        });
         jMenu3.add(jMenuItem4);
 
         jMenuItem5.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
@@ -173,6 +178,15 @@ public class Menu extends javax.swing.JFrame {
         submenu.moveToFront(ventanaPedidoAgregar);
         
     }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+        ProductoVista producto = new ProductoVista();
+        submenu.removeAll();
+        submenu.repaint();
+        producto.setVisible(true);
+        submenu.add(producto);
+        submenu.moveToFront(producto);
+    }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     /**
      * @param args the command line arguments
